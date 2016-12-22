@@ -5,7 +5,7 @@
 
 ATTRS{model}!="Didj", GOTO="mount_didj_end"
 
-SUBSYSTEM=="block", DRIVERS=="sd*", ACTION=="add", ATTRS{vendor}=="LeapFrog", ATTRS{model}=="Didj", MODE="666", NAME="leapfrog", RUN+="/usr/bin/sg_raw /dev/leapfrog C2 00 00 00 00 00 00 00 00 00"
+SUBSYSTEM=="block", DRIVERS=="sd*", ACTION=="add", ATTRS{vendor}=="LeapFrog", ATTRS{model}=="Didj", MODE="666", SYMLINK="leapfrog", RUN+="/usr/bin/sg_raw /dev/leapfrog C2 00 00 00 00 00 00 00 00 00"
 
 LABEL="mount_didj_end"
 
@@ -16,6 +16,6 @@ LABEL="mount_didj_end"
 
 ATTRS{model}=="Didj", GOTO="usb_boot_end"
 
-SUBSYSTEM=="block", DRIVERS=="sd*", ACTION=="add", ATTRS{vendor}=="Leap[Ff]*rog", MODE="666", NAME="leapfrog"
+SUBSYSTEM=="block", DRIVERS=="sd*", ACTION=="add", ATTRS{vendor}=="Leap[Ff]*rog", MODE="666", SYMLINK="leapfrog"
 
 LABEL="usb_boot_end"
